@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {  Component, OnInit } from '@angular/core';
 import { Product } from '../product.model';
 import { NotifySearchResultService } from '../notify-search-result.service';
 import { SearchResponse } from '../searchResponse';
-
 
 @Component({
   selector: 'search-results',

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { SearchRequest } from '../searchRequest';
 import { SearchService } from '../search.service';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -12,7 +14,7 @@ import { SearchService } from '../search.service';
 export class TopbarComponent implements OnInit {
 
   searchTerm = new FormControl();
-  constructor(private searchService : SearchService) { }
+  constructor(private searchService : SearchService,private router : Router) { }
 
   ngOnInit(): void {
   }
@@ -21,6 +23,7 @@ export class TopbarComponent implements OnInit {
     if(this.searchTerm.value !=null && this.searchTerm.value.length > 0) {
       let searchRequest = new SearchRequest(this.searchTerm.value);
       this.searchService.searchProducts(searchRequest);
+      this.router.navigate(['/search-results']);
     }
   }
 }

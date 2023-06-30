@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { SearchResultsComponent } from './shared/search-results/search-results.component';
 import { SearchService } from './shared/search.service';
+import { ErrorPageComponent } from './shared/error-page/error-page.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { SearchService } from './shared/search.service';
     LoginComponent,
     RegisterComponent,
     SearchResultsComponent,
+    ErrorPageComponent,
   ],
   imports: [
     BrowserModule,
