@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { SearchRequest } from '../searchRequest';
+import { SearchService } from '../search.service';
+
 
 @Component({
   selector: 'topbar',
@@ -7,13 +11,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopbarComponent implements OnInit {
 
-  constructor() { }
+  searchTerm = new FormControl();
+  constructor(private searchService : SearchService) { }
 
   ngOnInit(): void {
   }
 
   search(): void {
-    console.log('search called here');
+    if(this.searchTerm.value !=null && this.searchTerm.value.length > 0) {
+      let searchRequest = new SearchRequest(this.searchTerm.value);
+      this.searchService.searchProducts(searchRequest);
+    }
   }
-
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
+import { NotifySearchResultService } from '../shared/notify-search-result.service';
+import { SearchResponse } from '../shared/searchResponse';
 
 @Component({
   selector: 'home',
@@ -8,9 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router :Router,private notifySearchResultService : NotifySearchResultService) { }
 
   ngOnInit(): void {
+    this.notifySearchResultService.searchResult.subscribe(()=> this.router.navigate(['/search-results']));
   }
-
 }

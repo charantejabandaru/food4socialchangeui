@@ -3,7 +3,7 @@
         <span class="logo">SmartBuy</span>
     </div>
     <div class="topbarCentre">
-            <input placeholder="Search for Products, Brands and More" class="searchInput" />
+            <input placeholder="Search for Products, Brands and More" class="searchInput" [formControl]="searchTerm"/>
             <button (click)="search()">search</button>
     </div>
     <div class="topbarRight">

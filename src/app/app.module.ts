@@ -14,6 +14,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
+import { SearchResultsComponent } from './shared/search-results/search-results.component';
+import { SearchService } from './shared/search.service';
 
 
 @NgModule({
@@ -25,6 +27,7 @@ import { MatIconModule } from '@angular/material/icon';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
+    SearchResultsComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,7 @@ import { MatIconModule } from '@angular/material/icon';
     ReactiveFormsModule,
     MatIconModule,
   ],
-  providers: [ProductsService],
+  providers: [ProductsService,SearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
