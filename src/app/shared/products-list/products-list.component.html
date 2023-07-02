@@ -1,9 +1,22 @@
-<div class="productsListWrapper" *ngFor="let product of products">
-            <product 
-             title = {{product.title}}
-             image = {{product.image}}
-             price = {{product.price}}
-             rating = {{product.rating.rate}}
-             ratingCount = {{product.rating.count}}
-            ></product>
-</div>
+<ng-container *ngIf="isLoading; else productsList">
+    <div class="spinner">
+      <mat-spinner diameter="40"></mat-spinner>
+      <p>Loading...</p>
+    </div>
+</ng-container>
+<ng-template #productsList>
+    <div *ngIf="products.length > 0">
+        <div class="productsListWrapper" *ngFor="let product of products">
+                    <product 
+                    title = {{product.title}}
+                    image = {{product.image}}
+                    price = {{product.price}}
+                    rating = {{product.rating.rate}}
+                    ratingCount = {{product.rating.count}}
+                    ></product>
+        </div>
+    </div>
+    <div *ngIf="error">
+        <p>{{ error }}</p>
+    </div>
+</ng-template>

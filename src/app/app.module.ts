@@ -10,13 +10,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { TopbarComponent } from './shared/topbar/topbar.component';
 import { ProductComponent } from './shared/product/product.component';
 import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { SearchResultsComponent } from './shared/search-results/search-results.component';
 import { SearchService } from './shared/search.service';
 import { ErrorPageComponent } from './shared/error-page/error-page.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 
 
 @NgModule({
@@ -26,8 +26,6 @@ import { ErrorPageComponent } from './shared/error-page/error-page.component';
     TopbarComponent,
     ProductComponent,
     HomeComponent,
-    LoginComponent,
-    RegisterComponent,
     SearchResultsComponent,
     ErrorPageComponent,
   ],
@@ -38,6 +36,7 @@ import { ErrorPageComponent } from './shared/error-page/error-page.component';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatIconModule,
+    MatProgressSpinnerModule,
   ],
   providers: [ProductsService,SearchService],
   bootstrap: [AppComponent]

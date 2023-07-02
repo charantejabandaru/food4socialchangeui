@@ -5,7 +5,6 @@ import { SearchService } from '../search.service';
 import { Router } from '@angular/router';
 
 
-
 @Component({
   selector: 'topbar',
   templateUrl: './topbar.component.html',
@@ -22,8 +21,8 @@ export class TopbarComponent implements OnInit {
   search(): void {
     if(this.searchTerm.value !=null && this.searchTerm.value.length > 0) {
       let searchRequest = new SearchRequest(this.searchTerm.value);
-      this.searchService.searchProducts(searchRequest);
-      this.router.navigate(['/search-results']);
+      let searchResults  = encodeURIComponent(JSON.stringify(this.searchService.searchProducts(searchRequest)));
+      this.router.navigate(['/search-results'], { queryParams: {searchResults : searchResults}});
     }
   }
 }

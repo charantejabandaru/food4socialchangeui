@@ -4,3 +4,24 @@
     background-color: white;
     padding: 10px;
 }
+
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+  }
+  
+.no-results-message {
+    margin: 20px 0;
+    text-align: center;
+    color: red;
+}
+  
+  
+  
+  
+  
+  
+  
+  

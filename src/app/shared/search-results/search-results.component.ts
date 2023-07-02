@@ -1,7 +1,6 @@
 import {  Component, OnInit } from '@angular/core';
 import { Product } from '../product.model';
-import { NotifySearchResultService } from '../notify-search-result.service';
-import { SearchResponse } from '../searchResponse';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'search-results',
@@ -11,12 +10,33 @@ import { SearchResponse } from '../searchResponse';
 export class SearchResultsComponent implements OnInit{
 
   public products : Product[] = [];
+  public noMatchingResults : string = '';
+  public isLoading : boolean  = false;
+  public error : string = '';
 
-  constructor(private notifySearchResultService : NotifySearchResultService) {
+  constructor(private route : ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    console.log('Displaying search Results');
-    this.notifySearchResultService.searchResult.subscribe((searchResponse: SearchResponse)=> this.products = searchResponse.products);
+    this.isLoading = true;
+    this.route.queryParams.subscribe(params => {
+      try {
+        const searchResults = JSON.parse(decodeURIComponent(params['searchResults']));
+
+        if (searchResults && searchResults.products) {
+          this.products = searchResults.products;
+          this.isLoading = false;
+          console.log('Displaying search Results', this.products);
+          if (this.products.length === 0) {
+            this.noMatchingResults = 'Sorry! No Matching Results';
+          }
+        } else {
+          this.error = 'Invalid search results';
+        }
+      } catch (error) {
+        this.error = 'Error parsing search results';
+      }
+    });
+
   }
 }
