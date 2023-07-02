@@ -6,6 +6,8 @@ import  {SearchRequest} from './searchRequest';
 import  {SearchResponse} from './searchResponse';
 import productsData from './data.json';
 import { catchError } from 'rxjs/operators';
+import { timer } from 'rxjs';
+import { take } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root',
@@ -15,7 +17,7 @@ export class SearchService {
 
     constructor(private http: HttpClient){}
 
-    searchProducts(searchRequest : SearchRequest)  : SearchResponse{
+     searchProducts(searchRequest : SearchRequest)  : SearchResponse{
         let products : Product[] = productsData;
         let searchResponse =  new SearchResponse(this.filterProducts(products,searchRequest.searchTerm));
         return searchResponse;
@@ -33,5 +35,4 @@ export class SearchService {
           return keywords.some((keyword) => lowercaseEntry.includes(keyword));
         });
     }
-      
 }

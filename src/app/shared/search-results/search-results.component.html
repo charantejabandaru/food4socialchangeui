@@ -1,5 +1,5 @@
 <div *ngIf="isLoading" class="loading-spinner">
-    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+    <mat-spinner diameter="40"></mat-spinner>
 </div>
 <div *ngIf="!isLoading && products.length === 0" class="no-results-message">
     {{ noMatchingResults }}

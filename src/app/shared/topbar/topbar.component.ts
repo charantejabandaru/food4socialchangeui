@@ -18,7 +18,7 @@ export class TopbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  search(): void {
+  search() : void {
     if(this.searchTerm.value !=null && this.searchTerm.value.length > 0) {
       let searchRequest = new SearchRequest(this.searchTerm.value);
       let searchResults  = encodeURIComponent(JSON.stringify(this.searchService.searchProducts(searchRequest)));

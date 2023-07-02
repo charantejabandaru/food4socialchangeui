@@ -1,6 +1,7 @@
 import {  Component, OnInit } from '@angular/core';
 import { Product } from '../product.model';
 import { ActivatedRoute } from '@angular/router';
+import { SearchService } from '../search.service';
 
 @Component({
   selector: 'search-results',
@@ -17,7 +18,7 @@ export class SearchResultsComponent implements OnInit{
   constructor(private route : ActivatedRoute) {
   }
 
-  ngOnInit(): void {
+   ngOnInit(): void {
     this.isLoading = true;
     this.route.queryParams.subscribe(params => {
       try {
