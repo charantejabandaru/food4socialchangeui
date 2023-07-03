@@ -21,8 +21,12 @@ export class TopbarComponent implements OnInit {
   search() : void {
     if(this.searchTerm.value !=null && this.searchTerm.value.length > 0) {
       let searchRequest = new SearchRequest(this.searchTerm.value);
-      let searchResults  = encodeURIComponent(JSON.stringify(this.searchService.searchProducts(searchRequest)));
-      this.router.navigate(['/search-results'], { queryParams: {searchResults : searchResults}});
+      this.searchService.searchProducts(searchRequest).subscribe(response => {
+        let searchResults  = encodeURIComponent(JSON.stringify(response));
+        this.router.navigate(['/search-results'], { queryParams: {searchResults : searchResults}});
+      },error => {
+        console.log("An Error Occured"+error)
+      });
     }
   }
 }
