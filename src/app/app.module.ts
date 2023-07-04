@@ -4,30 +4,35 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { ProductsListComponent } from './shared/products-list/products-list.component';
-import { ProductsService } from './shared/products.service';
+import { QuoteComponent } from './shared/quote/quote.component';
+import { DonationsService } from './shared/donations.service';
 import { HttpClientModule } from '@angular/common/http';
-import { TopbarComponent } from './shared/topbar/topbar.component';
-import { ProductComponent } from './shared/product/product.component';
+import { DonationComponent } from './shared/donation/donation.component';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
-import { SearchResultsComponent } from './shared/search-results/search-results.component';
-import { SearchService } from './shared/search.service';
+import { DonationsListComponent } from './shared/donations-list/donations-list.component';
+import { LoginComponent  } from './login/login.component';
+import { RegisterComponent  } from './register/register.component';
 import { ErrorPageComponent } from './shared/error-page/error-page.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { DonationPageComponent } from './donation-page/donation-page.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductsListComponent,
-    TopbarComponent,
-    ProductComponent,
+    QuoteComponent,
+    DonationComponent,
     HomeComponent,
-    SearchResultsComponent,
+    DonationsListComponent,
     ErrorPageComponent,
+    LoginComponent,
+    RegisterComponent,
+    DashboardComponent,
+    DonationPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatIconModule,
     MatProgressSpinnerModule,
   ],
-  providers: [ProductsService,SearchService],
+  providers: [DonationsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

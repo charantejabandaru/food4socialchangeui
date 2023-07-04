@@ -1,7 +1,7 @@
 .topbarContainer {
     height: 50px;
     width: 100%;
-    background-color: #1877f2;
+    background-color: #F5EDDC;
     display: flex;
     align-items: center;
     position: sticky;
@@ -19,6 +19,11 @@
     font-weight: bold;
     color: white;
     cursor: pointer;
+}
+
+.logoimage{
+    width: 300px;
+    height: 55px;
 }
 
 .topbarCentre {
@@ -53,7 +58,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    color: white;
+    color: green;
 }
 
 .topbarLink {
@@ -94,3 +99,4 @@
     object-fit: cover;
     cursor: pointer;
 }
+

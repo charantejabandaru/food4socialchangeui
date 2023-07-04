@@ -1,3 +1,87 @@
+.donation {
+    width: 100vw;
+    height: 100vh;
+    background-color: #f0f2f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.donationWrapper {
+    width: 70%;
+    height: 70%;
+    display: flex;
+}
+
+.donationLeft , .donationRight {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.donationLogo {
+    font-size: 50px;
+    font-weight: 800;
+    color: green;
+    margin-bottom: 10px;
+}
+
+.donationDesc {
+    font-size: 24px;
+}
+
+.donationBox {
+    height: 400px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.donationInput {
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    font-size: 18px;
+    padding-left: 20px;
+}
+
+.donationInput:focus {
+    outline: none;
+}
+
+.donationButton {
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: green;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.donationForgot {
+    text-align: center;
+    color: #1775ee;
+}
+
+.donationRgisterButton {
+    width: 60%;
+    align-self: center;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: #42b72a;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
 .topbarContainer {
     height: 50px;
     width: 100%;

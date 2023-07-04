@@ -1,13 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SearchResultsComponent } from './shared/search-results/search-results.component';
-import { ProductsListComponent } from './shared/products-list/products-list.component';
+import { DonationsListComponent } from './shared/donations-list/donations-list.component';
+import { QuoteComponent } from './shared/quote/quote.component';
 import { ErrorPageComponent } from './shared/error-page/error-page.component';
-
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { HomeComponent } from './home/home.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { DonationPageComponent } from './donation-page/donation-page.component';
 
 const routes: Routes = [
-  {path:'',component: ProductsListComponent},
-  {path:'search-results',component: SearchResultsComponent},
+  {path:'',component: DonationPageComponent},
+  {path:'search-results',component: DonationsListComponent},
+  {path:'donation-page',component: DonationPageComponent},
+  {path: 'dashboard',component: DashboardComponent},
+  {path : 'login',component: LoginComponent},
+  {path : 'register',component: RegisterComponent},
   {path:'**', component: ErrorPageComponent}
 ];
 

@@ -1,19 +1,19 @@
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import {Product} from './product.model';
+import {Donation} from './donation.model';
 import { catchError } from 'rxjs/operators';
 import {Observable , throwError} from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
 })
-export class ProductsService {
+export class DonationsService {
     private baseUrl: string = "https://fakestoreapi.com/products";
 
     constructor(private http: HttpClient){}
 
-    getProducts() : Observable<Product[]>{
-        return this.http.get<Product[]>(this.baseUrl).pipe(catchError(this.handleError));
+    getDonations() : Observable<Donation[]>{
+        return this.http.get<Donation[]>(this.baseUrl).pipe(catchError(this.handleError));
     }
 
     private handleError(error: HttpErrorResponse): Observable<never> {
