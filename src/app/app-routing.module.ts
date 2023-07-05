@@ -8,6 +8,7 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DonationPageComponent } from './donation-page/donation-page.component';
+import { RecipientFormComponent } from './recipient-form/recipient-form.component';
 
 const routes: Routes = [
   {path:'',component: HomeComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'dashboard',component: DashboardComponent},
   {path : 'login',component: LoginComponent},
   {path : 'register',component: RegisterComponent},
+  {path : 'recipient-form',component:RecipientFormComponent},
   {path:'**', component: ErrorPageComponent}
 ];
 

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router'; 
 import { DonationsService } from '../shared/donations.service';
-import { Donation } from './donation';
+import { Donation } from '../shared/donation';
 
 @Component({
   selector: 'donation-page',
@@ -21,8 +21,6 @@ export class DonationPageComponent implements OnInit {
     foodQuantity = new FormControl('');
     recipientMobileNumber = new FormControl('');
 
-    
-
   constructor(private router : Router, private donationsService: DonationsService) { }
 
   ngOnInit(): void {
@@ -34,7 +32,7 @@ export class DonationPageComponent implements OnInit {
       this.donorName.value! ,
       this.donorMobileNumber.value! ,
       this.pickupAddress.value! ,
-      this.status,
+      this.status, 
       this.city.value! ,
       this.area.value! ,
       this.foodType.value! ,

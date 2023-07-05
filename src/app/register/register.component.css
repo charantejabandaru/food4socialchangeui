@@ -110,7 +110,7 @@
 }
 
 .registerWrapper {
-    width: 70%;
+    width: 90%;
     height: 70%;
     display: flex;
 }
@@ -123,9 +123,9 @@
 }
 
 .registerLogo {
-    font-size: 50px;
-    font-weight: 800;
-    color: #1775ee;
+    font-size: 30px;
+    font-weight: 700;
+    color: green;
     margin-bottom: 10px;
 }
 
@@ -144,7 +144,7 @@
 }
 
 .registerInput {
-    height: 50px;
+    height: 30px;
     border-radius: 10px;
     border: 1px solid gray;
     font-size: 18px;
@@ -156,10 +156,10 @@
 }
 
 .registerButton {
-    height: 50px;
+    height: 40px;
     border-radius: 10px;
     border: none;
-    background-color: #1775ee;
+    background-color: green;
     color: white;
     font-size: 20px;
     font-weight: 500;
@@ -168,7 +168,7 @@
 
 .registerForgot {
     text-align: center;
-    color: #1775ee;
+    color: green;
 }
 
 .registerRgisterButton {

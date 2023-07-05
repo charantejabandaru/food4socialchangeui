@@ -4,8 +4,8 @@
     </div>
     <div class="topbarRight">
         <div class="topbarLinks">
-            <span class="topbarLink"><a routerLink="/login" routerLinkActive="active">Sign In</a></span>
-            <span class="topbarLink"><a routerLink="/donation-page" routerLinkActive="active">Donate</a></span>
+            <span class="topbarLink"><a routerLink="/login" routerLinkActive="active" style="text-decoration: none; color: green;">Sign In</a></span>
+            <span class="topbarLink"><a routerLink="/donation-page" routerLinkActive="active" style="text-decoration: none; color: green;">Donate</a></span>
         </div>
         <div class="topbarIcons">
             <div class="topbarIconItem">
@@ -18,20 +18,19 @@
 <div class='register'>
     <div class="registerWrapper">
       <div class="registerLeft">
-          <h3 class="registerLogo">NewSocial</h3>
+          <h3 class="registerLogo">Help the helping hands</h3>
           <span class="registerDesc">
-              Connect with friends and the world around you on NewSocial
           </span>
       </div>
       <div class="registerRight">
           <div class="registerBox">
-              <input placeholder='Email' class="registerInput" />
-              <input placeholder='Password' class="registerInput" />
-              <button class="registerButton">Register</button>
-              <span class="registerForgot">Forgot Password?</span>
-              <button class='registerRgisterButton'>
-                  Create a new Account
-              </button>
+              <input placeholder='enter your name' class="registerInput" [formControl]="volunteerName"/>
+              <input placeholder='enter your mobile number' class="registerInput" [formControl]="volunteerMobileNumber"/>
+              <input placeholder='enter your city' class="registerInput" [formControl]="city"/>
+              <input placeholder='enter your area' class="registerInput" [formControl]="area"/>
+              <input type="email" placeholder='enter your email' class="registerInput" [formControl]="email"/>
+              <input type="password" placeholder='create a password' class="registerInput" [formControl]="password"/>
+              <button class="registerButton" (click)="addVolunteer()">Register</button>
           </div>
       </div>
     </div>

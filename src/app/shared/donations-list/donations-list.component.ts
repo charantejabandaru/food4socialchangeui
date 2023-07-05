@@ -3,6 +3,7 @@ import { Donation } from '../donation.model';
 import { DonationsService } from '../donations.service';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { NotifyDonationDelivery } from '../notify-donation-delivery.service';
 
 @Component({
   selector: 'donations-list',
@@ -15,12 +16,20 @@ export class DonationsListComponent implements OnInit{
   public noMatchingResults : string = '';
   public isLoading : boolean  = false;
   public error : string = '';
+  public showAllDonations : boolean = true;
 
-  constructor(private donationsService : DonationsService) {
+  constructor(private donationsService : DonationsService,private notifyService : NotifyDonationDelivery) {
   }
 
    ngOnInit(): void {
     this.isLoading = true;
+    this.notifyService.donationDelivered.subscribe(()=>{
+        this.loadData();
+    })
+    this.loadData();
+  }
+
+  loadData(){
     this.donationsService.getDonations()
       .pipe(
         catchError((error) => {
@@ -34,6 +43,6 @@ export class DonationsListComponent implements OnInit{
           console.log(donations);
           this.isLoading = false;
         }
-      );
+    );
   }
 }

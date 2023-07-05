@@ -20,16 +20,16 @@ export class DonationsService {
         return this.http.post(this.baseUrl,donation);
     }
 
-    acceptDonation(){
-        
-    }
+    acceptDonation(donation : Donation): Observable<any>{
+        return this.http.put(this.baseUrl+'/accept',donation);
+    }   
 
-    pickUpDonation(){
+    pickUpDonation(donation : Donation):Observable<any>{
+        return this.http.put(this.baseUrl+'/pickup',donation);
+    }   
 
-    }
-
-    deliverDonation(){
-
+    deliverDonation(donation : Donation){
+        return this.http.put(this.baseUrl+'/deliver',donation);
     }
 
     private handleError(error: HttpErrorResponse): Observable<never> {

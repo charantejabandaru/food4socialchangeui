@@ -18,6 +18,7 @@ import { ErrorPageComponent } from './shared/error-page/error-page.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DonationPageComponent } from './donation-page/donation-page.component';
+import { RecipientFormComponent } from './recipient-form/recipient-form.component';
 
 
 
@@ -33,6 +34,7 @@ import { DonationPageComponent } from './donation-page/donation-page.component';
     RegisterComponent,
     DashboardComponent,
     DonationPageComponent,
+    RecipientFormComponent,
   ],
   imports: [
     BrowserModule,

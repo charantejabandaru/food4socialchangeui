@@ -1,4 +1,8 @@
 
+.productsListWrapperParent{
+    display: flex;
+    flex-flow: row wrap;
+}
 .productsListWrapper {
     display: flex;
     background-color: white;
