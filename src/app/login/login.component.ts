@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { AuthenticationService } from '../shared/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'login',
@@ -6,10 +9,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  volunteerMobileNumber  = new  FormControl('');
+  password = new FormControl('');
 
-  constructor() { }
+  constructor(private authService : AuthenticationService,private router : Router) { 
+
+  }
 
   ngOnInit(): void {
+  }
+
+  login(){
+    let credentials = {username : this.volunteerMobileNumber.value!,password : this.password.value!};
+    console.log("the credentials are : "+ this.volunteerMobileNumber.value!);
+    this.authService.login(credentials).subscribe((res : any)=>{
+      console.log("this is the token"+res.token);
+      localStorage.setItem('token',res.token);
+      if(res.token){
+        this.router.navigate(['/dashboard']);
+      }
+    },(error :any)=>{
+      console.error(error);
+    });
   }
 
 }

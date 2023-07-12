@@ -4,6 +4,7 @@ import { DonationsService } from '../donations.service';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { NotifyDonationDelivery } from '../notify-donation-delivery.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'donations-list',
@@ -18,7 +19,7 @@ export class DonationsListComponent implements OnInit{
   public error : string = '';
   public showAllDonations : boolean = true;
 
-  constructor(private donationsService : DonationsService,private notifyService : NotifyDonationDelivery) {
+  constructor(private donationsService : DonationsService,private notifyService : NotifyDonationDelivery, private router: Router) {
   }
 
    ngOnInit(): void {
@@ -32,9 +33,13 @@ export class DonationsListComponent implements OnInit{
   loadData(){
     this.donationsService.getDonations()
       .pipe(
-        catchError((error) => {
+        catchError((err) => {
           this.error = 'Failed to load donations. Please try again later.';
-          return throwError(error);
+          if(err){
+            this.router.navigate(["/login"]);
+          }
+          
+          return throwError(err);
         })
       )
       .subscribe(

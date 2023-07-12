@@ -3,6 +3,7 @@ import {DonationStatus} from './donation-status';
 import { DonationsService } from '../donations.service';
 import { Donation } from '../donation';
 import { NotifyDonationDelivery } from '../notify-donation-delivery.service';
+import { Volunteer } from 'src/app/register/volunteer';
 
 @Component({
   selector: 'donation',
@@ -20,8 +21,9 @@ export class DonationComponent implements OnInit {
   @Input()  foodType : string = '';
   @Input()  foodQuantity : string = '';
   @Input()  recipientMobileNumber : string = '';
+  volunteerMobileNumber : string = localStorage.getItem("addVolunteer")!;
   deliveryLocation : string = '';
-
+  // addvolunteer :string ='';
   buttonText : string = '';
 
   constructor(private service : DonationsService,private notifyDeliveryService : NotifyDonationDelivery) { }
@@ -40,6 +42,20 @@ export class DonationComponent implements OnInit {
     else if(this.status == DonationStatus.pickedup){
       this.buttonText = 'deliver';
     }
+  }
+  assignVolunteer() : void{
+    let donation = new Donation(this.donorName,this.donorMobileNumber,this.pickupAddress,this.status,this.city,this.area,this.foodType,this.foodQuantity,this.recipientMobileNumber);
+    this.service.assignVolunteer(donation).subscribe((response) => {
+      console.log("volunteer added");
+      console.log(response.volunteer.volunteerMobileNumber);
+     // this.volunteerMobileNumber = response.volunteer.volunteerMobileNumber;
+      localStorage.setItem("addVolunteer",JSON.stringify(response.volunteer.volunteerMobileNumber));
+     // let addedvolunteer = localStorage.getItem("addVolunteer");
+      //console.log(addedvolunteer);
+     // this.volunteerMobileNumber = addedvolunteer!;
+    },(error) => {
+      console.log("error occured  "+error);
+    });
   }
 
   handleClick(){

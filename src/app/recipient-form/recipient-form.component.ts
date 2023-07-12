@@ -40,7 +40,7 @@ export class RecipientFormComponent implements OnInit {
           if(response.result==true){
             message = "Recipient Added SuccessFully";
             console.log(message);
-            this.router.navigate(['/'],{queryParams : {message : message}});
+            this.router.navigate(['/dashboard'],{queryParams : {message : message}});
           }
           else if(response.result==false){
             this.errorMessage = "RecipientAlreadyExists";
@@ -57,7 +57,7 @@ export class RecipientFormComponent implements OnInit {
   }
 
   isValid():boolean{
-    return this.recipientName.value!='' && this.recipientMobileNumber.value!='' && this.recipientMobileNumber.value?.length==10 && this.deliveryLocation.value!=null
+    return this.recipientName.value!='' && this.recipientMobileNumber.value!='' && this.recipientMobileNumber.value!='' && this.deliveryLocation.value?.length==10
     && this.city.value!='' && this.area.value!='';
   }
 

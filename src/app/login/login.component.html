@@ -1,6 +1,6 @@
 <div class="topbarContainer">
     <div class="topbarLeft">
-        <span class="logo"><img src="../../../assets/logo.jpg" class="logoimage"></span>
+        <span class="logo"><a routerLink="/"><img src="../../../assets/logo.jpg" class="logoimage"></a></span>
     </div>
     <div class="topbarRight">
         <div class="topbarLinks">
@@ -9,8 +9,7 @@
         </div>
         <div class="topbarIcons">
             <div class="topbarIconItem">
-                <i class="material-icons">phone</i>
-                <span class="topbarIconBadge">0</span>
+                <p style="color: green;">Contact us : +91 7032994189</p>
             </div>
         </div>
     </div>
@@ -24,12 +23,10 @@
       </div>
       <div class="loginRight">
           <div class="loginBox">
-              <input placeholder='Email' class="loginInput" />
-              <input type="password" placeholder='Password' class="loginInput" />
-              <button class="loginButton">login</button>
-              <span class="loginForgot">Forgot Password?</span>
-              <button class='loginRgisterButton'>
-                  Create a new Account
+              <input placeholder='mobilenumber' class="loginInput" [formControl]="volunteerMobileNumber"/>
+              <input type="password" placeholder='Password' class="loginInput" [formControl]="password"/>
+              <button class="loginButton" (click)="login()">login</button>
+              <button class='loginRgisterButton'><a routerLink="/register" routerLinkActive="active" style="text-decoration: none; color: white;">Create a new Account</a>
               </button>
           </div>
       </div>

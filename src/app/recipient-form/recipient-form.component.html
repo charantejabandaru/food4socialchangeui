@@ -1,6 +1,6 @@
 <div class="topbarContainer">
     <div class="topbarLeft">
-        <span class="logo"><img src="../../../assets/logo.jpg" class="logoimage"></span>
+        <span class="logo"><a routerLink="/"><img src="../../../assets/logo.jpg" class="logoimage"></a></span>
     </div>
     <div class="topbarRight">
         <div class="topbarLinks">
@@ -8,7 +8,7 @@
         </div>
         <div class="topbarIcons">
             <div class="topbarIconItem">
-                <span class="">Contact Us</span>
+                <p style="color: green;">Contact us : +91 7032994189</p>
             </div>
         </div>
     </div>
@@ -24,8 +24,9 @@
           <p>{{errorMessage}}</p>
           <div class="recipientBox">
               <input placeholder='enter recipient name' class="recipientInput" [formControl]="recipientName"/>
-              <input placeholder='enter recipient mobile number' class="recipientInput" [formControl]="recipientMobileNumber" />
-              <input placeholder='enter delivery location' class="recipientInput" [formControl]="deliveryLocation"/>
+              <input placeholder='enter recipient mobile number' class="recipientInput" [formControl]="deliveryLocation"/>
+              <input placeholder='enter delivery location' class="recipientInput" [formControl]="recipientMobileNumber" />
+              
               <input placeholder='enter the area' class="recipientInput" [formControl]="area"/>
               <input placeholder='enter the city' class="recipientInput" [formControl]="city"/>
               <button class="recipientButton" (click)="createRecipient()">Add Recipient</button>
