@@ -10,17 +10,18 @@ import {Observable , throwError} from 'rxjs';
 })
 export class DonationsService {
     private baseUrl: string = "http://localhost:3000/donations";
-    private  token = localStorage.getItem('token'); // Retrieve the stored token from local storage
+    private  token ; // Retrieve the stored token from local storage
     
 
     constructor(private http: HttpClient){
-        
+        this.token = localStorage.getItem('token');
     }
 
     getDonations() : Observable<Donation[]>{
         const headers = new HttpHeaders({
             "Authorization": ""+this.token
         });
+        console.log("get donation service is called");
         return this.http.get<Donation[]>(this.baseUrl,{headers}).pipe(catchError(this.handleError));
     }
 

@@ -21,7 +21,7 @@ export class DonationComponent implements OnInit {
   @Input()  foodType : string = '';
   @Input()  foodQuantity : string = '';
   @Input()  recipientMobileNumber : string = '';
-  volunteerMobileNumber : string = localStorage.getItem("addVolunteer")!;
+  volunteerMobileNumber : string = '';
   deliveryLocation : string = '';
   // addvolunteer :string ='';
   buttonText : string = '';
@@ -30,6 +30,7 @@ export class DonationComponent implements OnInit {
 
   ngOnInit(): void {
     this.assignButtonStatus();
+    this.volunteerMobileNumber = localStorage.getItem("addVolunteer")!;
   }
 
   assignButtonStatus(){
@@ -52,7 +53,8 @@ export class DonationComponent implements OnInit {
       localStorage.setItem("addVolunteer",JSON.stringify(response.volunteer.volunteerMobileNumber));
      // let addedvolunteer = localStorage.getItem("addVolunteer");
       //console.log(addedvolunteer);
-     // this.volunteerMobileNumber = addedvolunteer!;
+      this.volunteerMobileNumber = localStorage.getItem("addVolunteer")!;
+      //this.notifyDeliveryService.triggerDonationDelivered();
     },(error) => {
       console.log("error occured  "+error);
     });
@@ -80,6 +82,7 @@ export class DonationComponent implements OnInit {
     }
     else if(this.buttonText == 'deliver'){
       this.service.deliverDonation(donation).subscribe(response => {
+        localStorage.removeItem("addVolunteer");
         this.notifyDeliveryService.triggerDonationDelivered();
         console.log(response);
       });
